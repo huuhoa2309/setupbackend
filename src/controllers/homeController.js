@@ -20,16 +20,16 @@ let getCRUD = (req, res) => {
 };
 let postCRUD = async (req, res) => {
   let message = await CRUDService.createNewUser(req.body);
-  console.log(message);
-  console.log("-----------infomation data-----------------");
-  console.log(req.body);
+  //console.log(message);
+  //console.log("-----------infomation data-----------------");
+  //console.log(req.body);
   res.send("psot crud sucsessfull :))");
 };
 let displayGetCRUD = async (req, res) => {
   let data = await CRUDService.getAllUser();
-  console.log("-----------------display data----------");
-  console.log(data);
-  console.log("-----------------display data----------");
+  // console.log("-----------------display data----------");
+  // console.log(data);
+  // console.log("-----------------display data----------");
   return res.render("displayCRUD.ejs", {
     dataTable: data,
   });
