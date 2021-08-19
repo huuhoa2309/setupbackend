@@ -2,10 +2,14 @@ import userService from "../services/userService";
 let handleLogin = async (req, res) => {
   let email = req.body.email;
   let password = req.body.password;
+  // check emaill exits
+  // compare password
+  //return userInfo
+  //access token:JWT
   if (!email || !password) {
     return res.status(500).json({
       errCode: 1,
-      message: "missing parameter",
+      message: "Missing input parameter",
     });
   }
   let userData = await userService.handleUserLogin(email, password);
