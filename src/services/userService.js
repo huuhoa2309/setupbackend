@@ -13,21 +13,15 @@ let handleUserLogin = (email, password) => {
           },
         });
         if (user) {
-          console.log("-----------render password ------------");
-          console.log(`password in db(bcrypt):`, user.password);
-          console.log(`password user input(no bcrypt):`, password);
-          console.log("-----------render check value ------------");
-          //let test = await bcrypt.compareSync("B4c0//", user.password);
-          //console.log(test);
           let check = bcrypt.compare(password, user.password);
           if (check) {
-            console.log("true");
+            userData.errCode = 0;
+            userData.errMessage = "Ok";
+            userData.user = user;
           } else {
-            console.log("false");
+            userData.errCode = 3;
+            userData.errMessage = "Wrong password";
           }
-          // console.log("-----------compare password ------------");
-          // console(await bcrypt.compareSync(password, user.password));
-          // console.log("-----------compare password ------------");
         } else {
           // case 2 if handle login true
           userData.errCode = 2;
